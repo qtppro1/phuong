@@ -9,7 +9,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Chi Tiết Đơn Hàng</h3>
+                <h3>Invoice <small>Some examples to get you started</small></h3>
             </div>
 
             <div class="title_right">
@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Thông Tin Người Đặt Hàng</h2>
+                        <h2>Invoice Design <small>Sample user invoice design</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -52,6 +52,10 @@
                             <!-- title row -->
                             <div class="row">
                                 <div class="  invoice-header">
+                                    <h1>
+                                        <i class="fa fa-globe"></i> Invoice.
+                                        <small class="pull-right">Date: 16/08/2016</small>
+                                    </h1>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -69,10 +73,18 @@
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
-                                  
+                                    To
+                                    <address>
+                                        <strong>John Doe</strong>
+                                        <br>795 Freedom Ave, Suite 600
+                                        <br>New York, CA 94107
+                                        <br>Phone: 1 (804) 123-9876
+                                        <br>Email: jon@ironadmin.com
+                                    </address>
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
+                                    <b>Invoice #007612</b>
                                     <br>
                                     <br>
                                     <b>Order ID:</b> 4F3S8J
@@ -91,42 +103,42 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>Số Lượng</th>
-                                            <th>Sản Phẩm</th>
-                                            <th>Số Điện Thoại</th>
-                                            <th style="width: 50%">Thông Tin Sản Phẩm</th>
-                                            <th>Thanh Toán</th>
+                                            <th>Qty</th>
+                                            <th>Product</th>
+                                            <th>Serial #</th>
+                                            <th style="width: 59%">Description</th>
+                                            <th>Subtotal</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Iphone XS Max</td>
-                                            <td>(804) 123-9876</td>
-                                            <td>Hoàn toàn xứng đáng với những gì được mong chờ, phiên bản cao cấp nhất iPhone Xs Max 64 GB của Apple năm nay nổi bật với chip A12 Bionic mạnh mẽ, màn hình rộng đến 6.5 inch, cùng camera kép trí tuệ nhân tạo và Face ID được nâng cấp.
+                                            <td>Call of Duty</td>
+                                            <td>455-981-221</td>
+                                            <td>El snort testosterone trophy driving gloves handsome gerry Richardson helvetica tousled street art master testosterone trophy driving gloves handsome gerry Richardson
                                             </td>
-                                            <td>$120.50</td>
+                                            <td>$64.50</td>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td>Cốc Sạc</td>
-                                            <td>(804) 123-9876</td>
-                                            <td>USB đầu ra: iPhone gần như bất kỳ điện thoại thông minh. Tiêu chuẩn an toàn , 2 chân cắm dẹt, cắm phù hợp với bất kỳ ổ cắm tường nhà hoặc văn phòng. Sạc sẽ không ảnh hưởng đến nghe, trả lời hoặc sử dụng điện thoại. </td>
-                                            <td>$80.00</td>
+                                            <td>Need for Speed IV</td>
+                                            <td>247-925-726</td>
+                                            <td>Wes Anderson umami biodiesel</td>
+                                            <td>$50.00</td>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td>Tay Nghe</td>
-                                            <td>(804) 123-9876</td>
-                                            <td>Tai nghe EarPods chính hãng Apple Foxconn là dòng tai nghe cao cấp mới nhất đưa Apple lọt top các tai nghe chuẩn mực nhất, được sản xuất trực tiếp tại Foxconn – đối tác sản xuất phụ kiện chính thức của Apple.</td>
-                                            <td>$30.70</td>
+                                            <td>Monsters DVD</td>
+                                            <td>735-845-642</td>
+                                            <td>Terry Richardson helvetica tousled street art master, El snort testosterone trophy driving gloves handsome letterpress erry Richardson helvetica tousled</td>
+                                            <td>$10.70</td>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td>Sạc Dự Phòng</td>
-                                            <td>(804) 123-9876</td>
-                                            <td>Dung lượng sạc cực lớn: 20000 mAh. Thiết kế đẹp, mặt tráng gương, đèn led hiển thị thông minh, bắt mắt. Có thể sạc được tới 3 thiết bị một lúc. 2 cổng USB sạc nhanh. Hỗ trợ sạc không dây, cực nhạy và nhanh</td>
-                                            <td>$85.99</td>
+                                            <td>Grown Ups Blue Ray</td>
+                                            <td>422-568-642</td>
+                                            <td>Tousled lomo letterpress erry Richardson helvetica tousled street art master helvetica tousled street art master, El snort testosterone</td>
+                                            <td>$25.99</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -138,10 +150,37 @@
                             <div class="row">
                                 <!-- accepted payments column -->
                                 <div class="col-md-6">
-                                    
+                                    <p class="lead">Payment Methods:</p>
+                                    <img src="images/visa.png" alt="Visa">
+                                    <img src="images/mastercard.png" alt="Mastercard">
+                                    <img src="images/american-express.png" alt="American Express">
+                                    <img src="images/paypal.png" alt="Paypal">
+                                    <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                                    </p>
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-md-6">
+                                    <p class="lead">Amount Due 2/22/2014</p>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <th style="width:50%">Subtotal:</th>
+                                                <td>$250.30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tax (9.3%)</th>
+                                                <td>$10.34</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Shipping:</th>
+                                                <td>$5.80</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Total:</th>
+                                                <td>$265.24</td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -154,8 +193,8 @@
                             <div class="row no-print">
                                 <div class=" ">
                                     <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                                    <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Thanh Toán Qua Thẻ</button>
-                                    <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Xuất PDF</button>
+                                    <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>
+                                    <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
                                 </div>
                             </div>
                         </section>

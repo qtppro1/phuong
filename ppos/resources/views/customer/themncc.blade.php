@@ -5,7 +5,7 @@
 
     <div class="right_col" role="main">
 
-        <h1>Thêm nhà cung cấp sản phẩm </h1>
+        <h3>Thêm nhà cung cấp sản phẩm của bạn</h3>
 
         <div class="">
             <div class="page-title">
@@ -20,18 +20,16 @@
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h3>Form Điền Thông Tin </h3>
+                            <h2>Form Design <small>different form elements</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a class="dropdown-item" href="#">Thêm</a>
+                                        <li><a class="dropdown-item" href="#">Settings 1</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Sữa</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Xóa</a>
+                                        <li><a class="dropdown-item" href="#">Settings 2</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -45,43 +43,44 @@
                             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="NCC">Tên Nhà Cung Cấp  <span class="required">*</span>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="NCC" required="required" class="form-control ">
+                                        <input type="text" id="first-name" required="required" class="form-control ">
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="DCNCC">Địa Chỉ Nhà Cung Cấp  <span class="required">*</span>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="DCNCC" name="DCNCC" required="required" class="form-control">
+                                        <input type="text" id="last-name" name="last-name" required="required" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label for="Phone Number" class="col-form-label col-md-3 col-sm-3 label-align">Số Điện Thoại</label>
+                                    <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input id="Phone Number" class="form-control" type="text" name="Phone Number">
+                                        <input id="middle-name" class="form-control" type="text" name="middle-name">
                                     </div>
                                 </div>
-                                <!-- <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align"></label>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <div id="gender" class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Trong Nước &nbsp;
+                                                <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
                                             </label>
                                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                <input type="radio" name="gender" value="female" class="join-btn"> Nước Ngoài
+                                                <input type="radio" name="gender" value="female" class="join-btn"> Female
                                             </label>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="item form-group">
-                                    <label for= "Nganhang" class="col-form-label col-md-3 col-sm-3 label-align">Ngân Hàng </label>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
+                                    </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input id="Nganhang" class="form-control" type="text" name="Nganhang">
-                                           <script>
+                                        <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                        <script>
                                             function timeFunctionLong(input) {
                                                 setTimeout(function() {
                                                     input.type = 'text';

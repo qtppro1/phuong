@@ -55,7 +55,7 @@
                         <br />
 
                         <div>
-                            <p> <i class="fas fa-tasks"></i> Phần miềm quản lý phân phối sản phẩm</p>
+                            <p> <i class="fas fa-tasks"></i> Pos Phần miềm quản lý phân phối sản phẩm</p>
                         </div>
                     </div>
                 </form>
@@ -65,15 +65,15 @@
         <div id="register" class="animate form registration_form">
             <section class="login_content">
                 <form>
-                    <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+                    <h1>Create Account</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Mssv" required="" />
+                        <input type="text" class="form-control" placeholder="mssv" required="" />
                     </div>
                     <div>
                         <input type="email" class="form-control" placeholder="Email" required="" />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Mật khẩu" required="" />
+                        <input type="password" class="form-control" placeholder="mật khẩu" required="" />
                     </div>
                     <div>
                         <a class="btn btn-default submit" href="index.html">TẠO TÀI KHOẢN</a>
@@ -84,7 +84,7 @@
                     <div class="separator">
                         <br />
                         <div>
-                            <p> <i class="fas fa-tasks"></i> Phần miềm quản lý phân phối sản phẩm</p>
+                            <p> <i class="fas fa-tasks"></i> Pos Phần miềm quản lý phân phối sản phẩm</p>
                         </div>
                     </div>
                 </form>

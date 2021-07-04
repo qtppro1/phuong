@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Thông Tin Sản Phẩm</h2>
+                            <h2>Media Gallery <small> gallery design </small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -49,7 +49,7 @@
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 60%; display: block;" src="{{asset('public/fontend/images/iphonexsmax.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask">
                                                 <p>Your Text</p>
                                                 <div class="tools tools-bottom">
@@ -60,15 +60,14 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <p>Iphone XS Max 64Gb </p>
-                                            <b> 12 triệu </b>
+                                            <p>Snow and Ice Incoming for the South</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 60%; display: block;" src="{{asset('public/fontend/images/ipadpro.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask">
                                                 <p>Your Text</p>
                                                 <div class="tools tools-bottom">
@@ -79,15 +78,14 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <p>Ipad Pro 2020(128gb)</p>
-                                            <b> 22 triệu </b>
+                                            <p>Snow and Ice Incoming for the South</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 90%; display: block;" src="{{asset('public/fontend/images/laptop.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask">
                                                 <p>Your Text</p>
                                                 <div class="tools tools-bottom">
@@ -98,15 +96,14 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <p>MacBook Pro Mid 2019 Core i5 RAM 8GB, SSD 128GB</p>
-                                            <b> 23 triệu </b>
+                                            <p>Snow and Ice Incoming for the South</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/airpod.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask">
                                                 <p>Your Text</p>
                                                 <div class="tools tools-bottom">
@@ -117,15 +114,14 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <p>Tai nghe Bluetooth AirPods 2 Apple</p>
-                                            <b> 4 triệu </b>
+                                            <p>Snow and Ice Incoming for the South</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/pinduphong.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask">
                                                 <p>Your Text</p>
                                                 <div class="tools tools-bottom">
@@ -136,8 +132,7 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <p>Pin sạc dự phòng không dây 20000mAh</p>
-                                            <b> 850 ngàn </b>
+                                            <p>Snow and Ice Incoming for the South</p>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +141,7 @@
                                 <div class="col-md-55">
                                     <div class="thumbnail">
                                         <div class="image view view-first">
-                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/watch.jpg')}}" alt="image" />
+                                            <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                             <div class="mask no-caption">
                                                 <div class="tools tools-bottom">
                                                     <a href="#"><i class="fa fa-link"></i></a>
@@ -156,10 +151,9 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            
+                                            <p><strong>Image Name</strong>
                                             </p>
-                                            <p>Apple Watch S6 40mm viền nhôm</p>
-                                            <b> 9,5 triệu </b>
+                                            <p>Snow and Ice Incoming</p>
                                         </div>
                                     </div>
                                 </div>

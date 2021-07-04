@@ -650,4 +650,3 @@
             </div>
 
 @endsection
-

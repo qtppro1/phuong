@@ -7,7 +7,7 @@
             <ul class=" navbar-right">
                 {{--                            <li class="nav-item dropdown open" style="padding-left: 15px;">--}}
                 {{--                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">--}}
-                {{--                                    <img src="{{asset('public/fontend/images/img.jpg')}}" alt="">Quách Phương--}}
+                {{--                                    <img src="{{asset('public/fontend/images/img.jpg')}}" alt="">Quách Phương2--}}
                 {{--                                </a>--}}
                 {{--                                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">--}}
                 {{--                                    <a class="dropdown-item"  href="javascript:;"> Profile</a>--}}
@@ -34,11 +34,11 @@
                             <a class="dropdown-item">
                                 <span class="image"><img src="{{asset('public/fontend/images/img.jpg')}}" alt="Profile Image" /></span>
                                 <span>
-                          <span>Phương Quách</span>
+                          <span>John Smith</span>
                           <span class="time">3 mins ago</span>
                         </span>
                                 <span class="message">
-                          
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
                         </span>
                             </a>
                         </li>
@@ -46,11 +46,11 @@
                             <a class="dropdown-item">
                                 <span class="image"><img src="{{asset('public/fontend/images/img.jpg')}}" alt="Profile Image" /></span>
                                 <span>
-                          <span>Phương Quách</span>
+                          <span>John Smith</span>
                           <span class="time">3 mins ago</span>
                         </span>
                                 <span class="message">
-                          
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
                         </span>
                             </a>
                         </li>
@@ -58,11 +58,11 @@
                             <a class="dropdown-item">
                                 <span class="image"><img src="{{asset('public/fontend/images/img.jpg')}}" alt="Profile Image" /></span>
                                 <span>
-                          <span>Phương Quách</span>
+                          <span>John Smith</span>
                           <span class="time">3 mins ago</span>
                         </span>
                                 <span class="message">
-                          
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
                         </span>
                             </a>
                         </li>
@@ -70,11 +70,11 @@
                             <a class="dropdown-item">
                                 <span class="image"><img src="{{asset('public/fontend/images/img.jpg')}}" alt="Profile Image" /></span>
                                 <span>
-                          <span>Phương Quách</span>
+                          <span>John Smith</span>
                           <span class="time">3 mins ago</span>
                         </span>
                                 <span class="message">
-                          
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
                         </span>
                             </a>
                         </li>

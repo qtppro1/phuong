@@ -52,16 +52,16 @@
                                                 </div>
                                             </div>
                                             <div class="caption">
-                                                <p>Apple iphone 6s plus 64GB Yellow</p> Apple iphone 6s plus 64GB Yellow</p>
+                                                <p>Apple iphone 6s plus 64GB Yello</p> Apple iphone 6s plus 64GB Yello</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-55">
                                         <div class="thumbnail">
                                             <div class="image view view-first">
-                                                <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/iphonexsmax.jpg')}}" alt="image" />
+                                                <img style="width: 100%; display: block;" src="{{asset('public/fontend/images/media.jpg')}}" alt="image" />
                                                 <div class="mask">
-                                                    <p>Sản Phẩm</p>
+                                                    <p>Your Text</p>
                                                     <div class="tools tools-bottom">
                                                         <a href="#"><i class="fa fa-link"></i></a>
                                                         <a href="#"><i class="fa fa-pencil"></i></a>
@@ -70,7 +70,7 @@
                                                 </div>
                                             </div>
                                             <div class="caption">
-                                                <p>Ipad</p>
+                                                <p>Snow and Ice Incoming for the South</p>
                                             </div>
                                         </div>
                                     </div>
