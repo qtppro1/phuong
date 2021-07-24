@@ -23,12 +23,14 @@
 </head>
 
 <body class="login">
-<div>
 
-    <div class="login_wrapper">
+@if(Auth::check())
+    <div>
 
-        <div class="animate form login_form">
-            <section class="login_content">
+        <div class="login_wrapper">
+
+            <div class="animate form login_form">
+                <section class="login_content">
                     <form action="{{route('post_dk')}}" method="post" >
                         @csrf
                         <h1>Đăng ký</h1>
@@ -36,7 +38,18 @@
                             <input name="hoten" type="text" class="form-control" placeholder="Họ và tên" required="" />
                         </div>
                         <div>
-                            <input name="diachi" type="text" class="form-control" placeholder="Địa chỉ" required="" />
+                            <select name="quyenuser" id="quyenuser" class="form-control">
+                                <option value="#">Phân quyền</option>
+                                @foreach($quyen as $quyens)
+                                    @if($quyens->id != 1)
+                                        <option value="{{$quyens->id}}">{{$quyens->tenquyen}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <input name="diachicuthe" type="text" class="form-control" placeholder="Địa chỉ cụ thể" required="" />
                         </div>
                         <div style="float: left">
                             <input type="checkbox" name="gioitinh" value="Nam"> Nam
@@ -48,8 +61,16 @@
                             <input name="email" type="email" class="form-control" placeholder="Email" required="" />
                         </div>
                         <div>
+                            <input name="sdt" type="text" class="form-control" placeholder="Số điện thoại" required="" />
+                        </div>
+                        <div>
                             <input name="matkhau" type="password" class="form-control" placeholder="mật khẩu" required="" />
                         </div>
+                        <div>
+                            <span style="font-size: 14px;float: left;color: #1b1e21">Ảnh đại diện</span>
+                            <input name="image" type="file" class="form-control" placeholder="Chọn ảnh" required="" />
+                        </div>
+                        <br>
                         <div>
                             <button type="submit" class="btn btn-primary">Tạo tài khoản</button></span>
                             <a href="{{route('login')}}"><button class="btn btn-primary" type="button">Đăng nhập</button></a>
@@ -65,13 +86,23 @@
                             </div>
                         </div>
                     </form>
-            </section>
+                </section>
+            </div>
+
+
         </div>
-
-
     </div>
-</div>
-
+@else
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cart-table">
+                <p style="font-size: 22px">Bạn phải là admin!!</p>
+                <br>
+                <p style="font-size: 22px">Xin hãy đăng nhập!! <a href="{{route('login')}}"><i>Đăng nhập</i></a></p>
+            </div>
+        </div>
+    </div>
+@endif
 <!-- font -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">

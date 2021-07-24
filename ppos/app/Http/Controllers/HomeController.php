@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\chitietdh;
+use App\Models\donhang;
+use App\Models\loaikhachhang;
 use App\Models\loaisp;
+use App\Models\Giohang;
 use App\Models\nhacungcap;
 use App\Models\sanpham;
 use App\Models\loaidh;
+use App\Models\tuyen;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
@@ -47,15 +53,16 @@ class HomeController extends Controller
         return view('customer.login');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->forget('cart');
         return redirect()->route('login');
     }
     //kiểm tra đăng nhập
     public function checkLogin(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
-        if (Auth::attempt(['email' => $email, 'password' => $password, 'maquyen' => 2])){
+        if (Auth::attempt(['email' => $email, 'password' => $password])){
             $register_success = Session::get('register_success');
             Session()->put('register_success');
             return redirect()->route('home')->with('register_success','thanh cong');
@@ -69,27 +76,40 @@ class HomeController extends Controller
     //dangky
     public function dangky()
     {
-        return view('customer.dangky');
+        $quyen=DB::table('quyens')->get();
+        $thanhpho= DB::table('tbl_tp')->get();
+        return view('customer.dangky')->with([
+            'thanhpho'=>$thanhpho,
+            'quyen'=>$quyen
+        ]);
     }
 
     //dang ky
     public function postdk(Request $res){
         $hoten = $res->input('hoten');
-        $diachi = $res->input('diachi');
+
+        $diachicuthe = $res->input('diachicuthe');
         $gioitinh = $res->input('gioitinh');
         $email = $res->input('email');
+        $sdt = $res->input('sdt');
         $matkhau = $res->input('matkhau');
+        $image = $res->input('image');
+        $quyen= $res->input('quyenuser');
+
         // kiem tra mat khau co trung khong
             $user = new User;
             $user->hoten = $hoten;
-            $user->maquyen = 2;
-            $user->diachi = $diachi;
+            $user->maquyen = $quyen;
+
+            $user->diachicuthe = $diachicuthe;
             $user->gioitinh=$gioitinh;
             $user->email = $email;
+            $user->sdt = $sdt;
             $user->password = bcrypt($matkhau);
+            $user->image=$image;
             $user->save();
             Session::put('dk_success');
-            return redirect()->route('home')->with('dk_success', 'Đăng ký tài khoản thành công');
+            return redirect()->route('login')->with('dk_success', 'Đăng ký tài khoản thành công');
     }
     //chọn nhóm sản phẩm
     public function addproduct(Request $request){
@@ -132,6 +152,18 @@ class HomeController extends Controller
     //them kh
     public function themkh(){
         return view('customer.themkh');
+    }
+    public function themlkh(){
+        return view('customer.themlkh');
+    }
+    //them lkh
+    public function postlkh(Request $res){
+        $lkh = $res->input('tenlkh');
+        $loaikh = new loaikhachhang();
+        $loaikh->tenloaikh=$lkh;
+        $loaikh->save();
+        Session::put('loaikh_success');
+        return redirect()->back()->with('loaikh_success', 'Thêm loại khách hàng thành công');
     }
 //them nhà cung cấp sản phẩm
     public function postncc(Request $res){
@@ -177,13 +209,159 @@ class HomeController extends Controller
 
     //them loai don hang
     public function add_order(){
-        return view('customer.themldh');
+            return view('customer.themldh');
+    }
+    //tao đơn hàng mới
+    public function cart(Request $request)
+    {
+
+        $quyenuser=DB::table('quyens')->get();
+        $kh=DB::table('users')->get();
+        $ldh=DB::table('loaidhs')->get();
+        $sp = DB::table('sanphams')->get();
+        $lsp = DB::table('loaisps')->get();
+
+        return view('customer.cart')->with([
+            'sp'=>$sp,
+            'lsp'=>$lsp,
+            'loaidhs'=>$ldh,
+            'kh'=>$kh,
+            'quyenuser'=>$quyenuser
+        ]);
     }
 
+
+//gio hang
+    public function addCard($id, Request $request){
+
+        $product = sanpham::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null; // neu co session cart thi lay cart, khoong thi null
+
+        $cart = new Giohang($oldCart);
+        $cart->add($product, $id);
+
+        $request->session()->put('cart', $cart);
+        //$add_cart_success = Session::get('add_cart_success');
+        //Session::put('add_cart_success');
+        return redirect()->back()->with(
+            'add_cart_success',
+            'Đã thêm vào giỏ hàng'
+        );
+    }
+
+    public function updateCart(Request $request){
+        if($request->id and $request->quantity){
+            $oldCart = Session::has('cart')?Session::get('cart'):null;
+            $cart = new Giohang($oldCart);
+            $cart->update_cart($request->id,$request->quantity);
+            session()->put('cart', $cart);
+        }
+
+    }
+
+    public function getDeleteCart($id){
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Giohang($oldCart);
+        $cart->removeItem($id);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }else{
+            Session::forget('cart');
+
+        }
+        $delete_cart = Session::get('delete_cart');
+        Session::put('delete_cart');
+
+        return redirect()->back()->with('delete_cart', 'Đã xóa sản phẩm ra khỏi giỏ hàng');
+    }
+
+    //thanhtoan
+    public function postthanhtoan(Request $request){
+        if($request->idkh and $request->ldh){
+            $oldCart = Session::has('cart')?Session::get('cart'):null;
+            $cart = new Giohang($oldCart);
+            $cart->update_kh($request->idkh,$request->ldh);
+            session()->put('cart', $cart);
+        }
+    }
+    public function route_post(Request $request){
+        if($request->id_route){
+            $oldCart = Session::has('cart')?Session::get('cart'):null;
+            $cart = new Giohang($oldCart);
+            $cart->update_route($request->id_route);
+            session()->put('cart', $cart);
+        }
+    }
+
+
+    public function thanhtoan(Request $request){
+
+        $mytime = Carbon::now();
+        $quyens=DB::table('quyens')->get();
+        $tuyens=DB::table('tuyens')->get();
+        $kh=DB::table('users')->get();
+        $lhd=DB::table('loaidhs')->get();
+        return view('customer.thanhtoan')->with([
+            'timenow_order'=>$mytime,
+            'quyens'=>$quyens,
+            'kh'=>$kh,
+            'lhd'=>$lhd,
+            'tuyens'=>$tuyens,
+        ]);
+    }
+    public function datHang(Request $request){
+
+        $cart = Session::get('cart');
+        $route= DB::table('tuyens')->where('id',$cart->route_cart)->get();
+
+        if(count($cart->items)==0){
+            Session::put('order_Nsuccess');
+            return redirect()->back()->with('order_Nsuccess','Giỏ hàng rỗng!');
+        }else {
+            $order = new donhang();
+            $order->maldh = $cart->ma_ldh;
+            $order->mauser = Auth::user()->id;
+            $order->makh = $cart->customer_cart;
+            $order->matuyen = $cart->route_cart;
+            $order->ngaytao = Carbon::now();
+            foreach ($route as $routes)
+
+            $order->tongtien = ($routes->phiship + $cart->totalPrice);
+            $order->giamgia = 0;
+            $order->phiship = $routes->phiship;
+
+            if ($request->input('thanhtoan') == 1){
+                $order->hinhthucthanhtoan = "Tiền mặt";
+                $order->stt = "Đã Thanh toán";
+            }
+            elseif ($request->input('thanhtoan') == 2){
+                $order->hinhthucthanhtoan = "Chuyển khoản";
+                $order->stt = "Đã Thanh toán";
+            }
+            elseif ($request->input('thanhtoan') == 3){
+                $order->hinhthucthanhtoan = "Thanh toán sau";
+                $order->stt = "Chưa Thanh toán";
+            }
+            $order->save();
+
+            foreach ($cart->items as $key => $value) {
+                $orderDetail = new chitietdh();
+                $orderDetail->madh = $order->id;
+                $orderDetail->masp = $key;
+                $orderDetail->soluong = $value['qty'];
+                $orderDetail->dongia = ($value['price'] / $value['qty']);
+                $orderDetail->thanhtien = ($value['qty'] * ($value['price'] / $value['qty']));
+                $orderDetail->save();
+            }
+            Session::forget('cart');
+            $order_success = Session::get('order_success');
+            Session::put('order_success');
+            return redirect()->home()->with('order_success', 'Đặt hàng thành công');
+        }
+    }
     public function postadd_order(Request $res){
         $tenloai = $res->input('tenldh');
         $mota = $res->input('mota');
-
         $lsp = new loaidh();
         $lsp->tenldh=$tenloai;
         $lsp->mota=$mota;
@@ -191,39 +369,112 @@ class HomeController extends Controller
         Session::put('ldh_success');
         return redirect()->route('home')->with('ldh_success', 'Thêm Loại đơn hàng thành công');
     }
-    //tao đơn hàng mới
-    public function createorder(){
-        return view('customer.create_order');
-    }
+
 
     //đơn hàng
     public function invoice(){
-        return view('customer.invoice');
+        $donhang = DB::table('donhangs')->latest()->get();
+        $tuyen=DB::table('tuyens')->get();
+        $khachhang=DB::table('users')->get();
+        return view('customer.invoice')->with([
+            'donhang'=>$donhang,
+            'tuyen'=>$tuyen,
+            'khachhang'=>$khachhang
+        ]);
     }
+
     //dai ly
     public function agency(){
-        return view('customer.agency');
+        $agency = DB::table('nhacungcaps')->get();
+        return view('customer.agency')->with([
+            'agency'=>$agency
+        ]);
     }
     //chi tiết đơn hàng
-    public  function invoice_detail(){
-        return view('customer.invoice_detail');
+    public  function invoice_detail($idx){
+
+        $donhang=DB::table('donhangs')->where('id',$idx)->get();
+
+        $chitietdonhang=DB::table('chitietdhs')->get();
+        $product=DB::table('sanphams')->get();
+        $user = DB::table('users')->get();
+        $quyen = DB::table('quyens')->get();
+        $tuyen = DB::table('tuyens')->get();
+        $loaihoadon = DB::table('loaidhs')->get();
+        return view('customer.invoice_detail')->with([
+            'donhang'=>$donhang,
+            'user'=>$user,
+            'quyen'=>$quyen,
+            'tuyen'=>$tuyen,
+            'loaihoadon'=>$loaihoadon,
+            'chitietdonhang'=>$chitietdonhang,
+            'product'=>$product,
+        ]);
     }
     //sản phẩm
     public function product(){
-        return view('customer.product');
+        $sp = DB::table('sanphams')->get();
+        $lsp = DB::table('loaisps')->select('id')->get();
+        return view('customer.product')->with([
+            'sp'=>$sp,
+            'lsp'=>$lsp
+        ]);
     }
 
     public function user(){
-        return view('customer.user');
+        $user = DB::table('users')->get();
+        $quyen = DB::table('quyens')->get();
+        return view('customer.user')->with([
+            'user'=>$user,
+            'quyen'=>$quyen
+        ]);
     }
     //trang thai don hang
     public function status_invoice(){
-        return view('customer.status_invoice');
+        $donhang=DB::table('donhangs')->latest()->get();
+        return view('customer.status_invoice')->with([
+            'donhang'=>$donhang
+        ]);
+    }
+    //cap nhat trang thai don hang
+    public function post_stt($iddh , Request $request){
+        $newstt = $request->input('trangthai');
+        $dhs = donhang::find($iddh);
+        $dhs->stt = $newstt;
+        $dhs->save();
+        Session::put('stt_success');
+        return redirect()->route('status_invoice')->with('stt_success', 'Cập nhật thành công');
     }
 
     //tuyen duong
-    public function route_order(){
-        return view('customer.route_order');
+    public function tuyen(){
+        $tuyen= DB::table('tuyens')->get();
+        return view('customer.tuyen')->with([
+            'tuyen'=>$tuyen,
+        ]);
+    }
+
+    //post tuyen duong
+    public function route_order(Request $res){
+        $thanhpho= DB::table('tbl_tp')->get();
+        return view('customer.route_order')->with([
+            'thanhpho'=>$thanhpho
+        ]);
+    }
+    public function post_route(Request $res){
+        $diemdau = $res->input('diemdau');
+        $diemcuoi = $res->input('diemcuoi');
+        $km = $res->input('km');
+        $phiship = $res->input('ship');
+
+        $tuyen = new tuyen();
+        $tuyen ->diemdau=$diemdau;
+        $tuyen ->diemcuoi=$diemcuoi;
+        $tuyen ->km=$km;
+        $tuyen ->phiship=$phiship;
+        $tuyen->save();
+        Session::put('route_success');
+        return redirect()->back()->with('route_success', 'Thêm Loại đơn hàng thành công');
     }
 
     //chi tiết sản phẩm

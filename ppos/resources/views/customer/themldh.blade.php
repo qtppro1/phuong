@@ -2,12 +2,11 @@
 @section('title','Thêm loại đơn hàng')
 @section('content')
 
+<div class="right_col" role="main">
+    <div class="">
 
-    <div class="right_col" role="main">
-
-        <h3>Thêm loại đơn hàng</h3>
-
-        <div class="">
+        @if(Auth::check())
+            <h3>Thêm loại đơn hàng</h3>
             <div class="page-title">
                 <div class="title_left">
 
@@ -50,7 +49,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-table">
+                        <p style="font-size: 22px">Xin hãy đăng nhập!! <a href="{{route('login')}}"><i>Đăng nhập</i></a></p>
+                        <p style="font-size: 22px">Nếu chưa có tài khoản, hãy liên hệ Admin để đăng ký Tài khoản: 0939337416</p>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
-    </div>
+</div>
+
 @endsection

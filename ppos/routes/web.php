@@ -33,27 +33,45 @@ Route::post('/postproduct','App\Http\Controllers\HomeController@postproduct')->n
 Route::get('/addcategory','App\Http\Controllers\HomeController@themlsp')->name('themlsp');
 Route::post('/postlsp', 'App\Http\Controllers\HomeController@postlsp')->name('postlsp');
 
-Route::get('/addcustomer','App\Http\Controllers\HomeController@themkh')->name('themkh');
+Route::get('/themlkh','App\Http\Controllers\HomeController@themlkh')->name('themlkh');
+Route::post('/postlkh','App\Http\Controllers\HomeController@postlkh')->name('postlkh');
 
 
 Route::post('/postncc','App\Http\Controllers\HomeController@postncc')->name('postncc');
 Route::get('/themncc','App\Http\Controllers\HomeController@themncc')->name('themncc');
 
-Route::get('/createorder','App\Http\Controllers\HomeController@createorder')->name('createorder');
-//don hang
+Route::get('/cart','App\Http\Controllers\HomeController@cart')->name('cart');
+//giỏ hàng
+Route::get('add-card/{id}', 'App\Http\Controllers\HomeController@addCard')->name('addCard');
+Route::get('update-cart', 'App\Http\Controllers\HomeController@updateCart')->name('getUpdateCart');
+Route::get('delete-cart/{id}', 'App\Http\Controllers\HomeController@getDeleteCart')->name('getDeleteCart');
+//thanhtoan
+Route::get('/thanhtoan', 'App\Http\Controllers\HomeController@thanhtoan')->name('thanhtoan');
+Route::get('/postthanhtoan', 'App\Http\Controllers\HomeController@postthanhtoan')->name('postthanhtoan');
+Route::get('/route_post', 'App\Http\Controllers\HomeController@route_post')->name('route_post');
+Route::post('/dat-hang', 'App\Http\Controllers\HomeController@datHang')->name('datHang');
+
+//tong hop don hang
 Route::get('/invoice','App\Http\Controllers\HomeController@invoice')->name('invoice');
 //dai ly
 Route::get('/agency','App\Http\Controllers\HomeController@agency')->name('agency');
 //ch tiet don hang
-Route::get('/invoice_detail','App\Http\Controllers\HomeController@invoice_detail')->name('invoice_detail');
+Route::get('/invoice_detail/{dh}','App\Http\Controllers\HomeController@invoice_detail')->name('invoice_detail');
 //san pham
 Route::get('/product','App\Http\Controllers\HomeController@product')->name('product');
 
 Route::get('/user','App\Http\Controllers\HomeController@user')->name('user');
 
-Route::get('/status_invoice','App\Http\Controllers\HomeController@status_invoice')->name('status_invoice');
 
-Route::get('/route_order','App\Http\Controllers\HomeController@route_order')->name('tuyen');
+
+//tuyen duong
+Route::get('/tuyen','App\Http\Controllers\HomeController@tuyen')->name('tuyen');
+Route::get('/route_order','App\Http\Controllers\HomeController@route_order')->name('route_order');
+Route::post('/post_route','App\Http\Controllers\HomeController@post_route')->name('post_route');
+
+//cap nhat trang thai don hang
+Route::get('/status_invoice','App\Http\Controllers\HomeController@status_invoice')->name('status_invoice');
+Route::post('/post_stt/{iddh}','App\Http\Controllers\HomeController@post_stt')->name('post_stt');
 
 Route::get('/product_detail','App\Http\Controllers\HomeController@product_detail')->name('product_detail');
 

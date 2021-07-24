@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{asset('public/fontend/images/favicon.ico')}}" type="image/ico" />
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <link rel="icon" href="{{asset('public/fontend/images/favicon.jpg')}}" type="image/ico" />
 
     <title>@yield('title')</title>
 
@@ -24,7 +25,7 @@
     <link href="{{asset('public/fontend/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('public/fontend/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <!-- Custom Theme Style -->
     <link href="{{asset('public/fontend/build/css/custom.min.css')}}" rel="stylesheet">
 
@@ -45,6 +46,7 @@
 <script src="{{asset('public/fontend/vendors/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('public/fontend/vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+
 <!-- FastClick -->
 <script src="{{asset('public/fontend/vendors/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
@@ -79,14 +81,15 @@
 <script src="{{asset('public/fontend/vendors/moment/min/moment.min.js')}}"></script>
 <script src="{{asset('public/fontend/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
+
 <!-- Custom Theme Scripts -->
 <script src="{{asset('public/fontend/build/js/custom.min.js')}}"></script>
 
 <!-- font -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.min.js"></script>
+{{--    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>--}}
+
 
 </body>
 </html>
